@@ -1,3 +1,1 @@
-# Get Started!
-
-Add files and start typing 🎉
+# High School App Design
