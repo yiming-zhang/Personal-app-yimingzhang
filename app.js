@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Here we enable session handling ..
 app.use(
   session({
-    secret: "zzbbyanana789sdfa",
+    secret: "zzbbya789fds89snana789sdfa",
     resave: false,
     saveUninitialized: false
   })
@@ -47,12 +47,16 @@ app.use(function(req, res, next) {
 });
 
 // here we start handling routes
-app.get("/", (req, res, next) => {
-  res.render("index", { title: "YellowCartwheel" });
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
 app.get("/demo", (req, res) => {
   res.render("demo");
+});
+
+app.get("/about", (req, res) => {
+  res.render("about");
 });
 
 // Don't change anything below here ...
