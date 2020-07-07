@@ -9,7 +9,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
-const axios = require("axios")
+const axios = require("axios");
 var debug = require("debug")("personalapp:server");
 
 // Now we create the server
@@ -60,6 +60,8 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 
+// Here is where we will explore using forms!
+
 
 
 // this example shows how to get the current US covid data
@@ -79,7 +81,7 @@ app.get("/c19",
 
 // this shows how to use an API to get recipes
 // http://www.recipepuppy.com/about/api/
-// the example here 
+// the example here finds omelet recipes with onions and garlic
 app.get("/omelet",
   async (req,res,next) => {
     try {
