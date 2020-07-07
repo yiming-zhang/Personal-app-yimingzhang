@@ -52,13 +52,20 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/demo", (req, res) => {
-  res.render("demo");
+app.get("/demo", 
+        function (req, res){res.render("demo");});
+
+app.get("/about", (request, response) => {
+  response.render("about");
 });
 
-app.get("/about", (req, res) => {
-  res.render("about");
-});
+app.get("/form", (request,response) => {
+  response.render("form")
+})
+
+app.post("/showformdata", (request,response) => {
+  response.json(request.body)
+})
 
 // Here is where we will explore using forms!
 

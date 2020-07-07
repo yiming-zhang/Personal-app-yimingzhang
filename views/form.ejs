@@ -1,0 +1,25 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+    <h1>
+      Form demo
+    </h1>
+
+<form method="post" action="/showformdata" class="bg-info">
+  Enter your name:
+  <input type="text" 
+         name="fullname" 
+         placeholder="your full name"><br>
+  When were you born? 
+  <input type="date" 
+         name="birthday"><br>
+  What is your favorite color? 
+  <input type="color" 
+         name="favoriteColor"> <br>
+
+  <input type="submit" value="Register now">
+</form>
+
+<hr>
+
+
+<%- include('bootfooter') -%>
