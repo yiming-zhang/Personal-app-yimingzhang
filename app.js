@@ -9,6 +9,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
+const axios = require("axios")
 var debug = require("debug")("personalapp:server");
 
 // Now we create the server
@@ -58,6 +59,37 @@ app.get("/demo", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about");
 });
+
+
+
+// this example shows how to get the current US covid data
+// and send it back to the browser in raw JSON form, see
+// https://covidtracking.com/data/api
+// for all of the kinds of data you can get
+app.get("/c19", 
+  async (req,res,next) => {
+    try {
+      const url = "https://covidtracking.com/api/v1/us/current.json"
+      const result = await axios.get(url)
+      res.json(result.data)
+    } catch(error){
+      next(error)
+    }
+})
+
+// this shows how to use an API to get recipes
+// http://www.recipepuppy.com/about/api/
+// the example here 
+app.get("/omelet",
+  async (req,res,next) => {
+    try {
+      const url = "http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3"
+      const result = await axios.get(url)
+      res.json(result.data)
+    } catch(error){
+      next(error)
+    }
+})
 
 // Don't change anything below here ...
 
