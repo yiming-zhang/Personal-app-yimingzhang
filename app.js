@@ -8,7 +8,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const bodyParser = require("body-parser");
+//const bodyParser = require("body-parser");
 const axios = require("axios");
 var debug = require("debug")("personalapp:server");
 
@@ -36,7 +36,7 @@ app.use(
   })
 );
 
-app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.urlencoded({ extended: false }));
 
 // This is an example of middleware
 // where we look at a request and process it!
