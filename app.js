@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/demo", 
+app.get("/demo",
         function (req, res){res.render("demo");});
 
 app.get("/about", (request, response) => {
@@ -63,9 +63,70 @@ app.get("/form", (request,response) => {
   response.render("form")
 })
 
+app.get("/dataDemo", (request,response) => {
+  response.locals.name="Tim Hickey"
+  response.locals.vals =[1,2,3,4,5]
+  response.locals.people =[
+    {'name':'Tim','age':65},
+    {'name':'Yas','age':29}]
+  response.render("dataDemo")
+})
+
 app.post("/showformdata", (request,response) => {
   response.json(request.body)
 })
+
+app.get("/checkhealth", (request,response) => {
+  response.render("checkhealth")
+})
+
+app.post('/showhealth', (req,res) => {
+  const height = parseFloat(req.body.height) // converts form parameter from string to float
+  const weight = parseFloat(req.body.weight)
+  const bmi=703*weight/(height*height)
+  res.locals.height =height
+  res.locals.weight = weight
+  res.locals.bmi = bmi
+  res.locals.selfrating =req.body.selfrating
+
+  res.render('showhealth')
+})
+
+
+  //res.locals.sugarintake = sugarintake
+  //res.render('showintake')
+
+
+app.get("/intake", (request,response) => {
+  response.render("intake")
+})
+
+app.post('/showintake', (req,res) => {
+  const sugarintake = parseFloat(req.body.sugarintake) // converts form parameter from string to float
+
+  res.locals.sugarintake = sugarintake
+  res.render('showintake')
+})
+
+
+
+app.get('/recipe', (req,res) => {
+  res.render('recipe')
+})
+
+app.post("/getRecipes",
+  async (req,res,next) => {
+    try {
+      const food = req.body.food
+      const url = "https://www.themealdb.com/api/json/v1/1/search.php?s="+food+""
+      const result = await axios.get(url)
+      res.locals.meals=result.data.meals
+      res.render('showRecipes')
+    } catch(error){
+      next(error)
+    }
+})
+
 
 // Here is where we will explore using forms!
 
@@ -75,7 +136,7 @@ app.post("/showformdata", (request,response) => {
 // and send it back to the browser in raw JSON form, see
 // https://covidtracking.com/data/api
 // for all of the kinds of data you can get
-app.get("/c19", 
+app.get("/c19",
   async (req,res,next) => {
     try {
       const url = "https://covidtracking.com/api/v1/us/current.json"

@@ -1,0 +1,24 @@
+<%- include('bootheader') -%>
+
+<%- include('menubar') -%>
+
+    <div class="jumbotron">
+        <h1>Your sugar intake is as follows:</h1>
+
+    </div>
+    Your sugar intake today is <%= sugarintake %>
+    <hr>
+    <% if (sugarintake < 9) {%>
+            Your sugar intake is normal
+        <%} else if (sugarintake >=9) {%>
+            Too much!
+            <p>The AHA suggests an added-sugar limit of no more than 100 calories per day (about 6 teaspoons or 24 grams of sugar) for most women and no more than 150 calories per day (about 9 teaspoons or 36 grams of sugar) for most men.
+There’s no nutritional need or benefit that comes from eating added sugar. A good rule of thumb is to avoid products that have a lot of added sugar, including skipping foods that list “sugar” as the first or second ingredient. However, the growing use of alternative sweeteners can make it difficult to determine which ingredients count as sugar, because there are multiple sources of sugar with different names.
+
+            </P>
+        <%} %>
+    <hr><br>
+
+
+
+<%- include('bootfooter') -%>

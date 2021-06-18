@@ -1,0 +1,44 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+    <div class="col bg-warning text-white">
+    <h1>
+    Health Check-In
+    </h1><br><br>
+    </div>
+<br>
+<br>
+<form method="post" action="/showhealth" class="bg-info">
+  How would you rate your overall health?
+  <select name="selfrating">
+    <option>Excellent</option>
+    <option>Good</option>
+    <option>Fair</option>
+    <option>Poor</option>
+  </select><br>
+       What is your height in feet<input type="text" name="height"> <br>
+       What is your current weight <input type="text" name="weight"> <br>
+   <br>
+   Do you currently smoke cigarettes or not?
+   <select name="smoking">
+     <option>Yes</option>
+     <option>No</option>
+   </select><br>
+   How many hours do you sleep each night?
+    Sleeping hour <input type="number" name="sleep">
+   <br>
+   How many times in the average week do you engage in 30 mins activity?
+   <select name="activity">
+     <option>0</option>
+     <option>1</option>
+     <option>2</option>
+     <option>3</option>
+     <option>4</option>
+     <option>5+</option>
+   </select><br><br>
+  <input type="submit" value="submit now">
+</form>
+
+<hr>
+
+
+<%- include('bootfooter') -%>

@@ -1,0 +1,19 @@
+<%- include('bootheader') -%>
+
+<%- include('menubar') -%>
+
+    <div class="jumbotron">
+        <h1>Congrats! You have filled in the health check-in template</h1>
+    </div>
+    <h3>You consider your health condition as <%= selfrating %>
+    </h3>
+    Your height is <%= height %>, and your weight is <%= weight %>;
+    Your bmi index is <%= bmi %><br>
+    <hr>
+    <% if (bmi < 15) {%>
+            You are slightly underweight.
+        <%} else if (bmi > 25) {%>
+            You are slightly overweight
+        <%} %>
+
+<%- include('bootfooter') -%>

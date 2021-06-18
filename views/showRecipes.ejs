@@ -1,0 +1,27 @@
+<%- include('bootheader') -%>
+
+<%- include('menubar') -%>
+
+<div class="jumbotron">
+    <h1>Here's the result:</h1>
+
+</div>
+
+<% meals.map((recipe) => {%>
+<div style="border-top:thick solid blue; margin:20; padding:10">
+    <h1 class="bg-warning"> <%= recipe.strMeal %> </h1>
+    <a href="<%= recipe.strSource %>"> <%= recipe.strSource %> </a>
+    <div class="row">
+        <div class="col">
+            <img src="<%= recipe.strMealThumb %>" width="200">
+            <br>
+        </div>
+
+    </div>
+</div>
+<%})%>
+
+<%= JSON.stringify(meals) %>
+
+
+<%- include('bootfooter') -%>
