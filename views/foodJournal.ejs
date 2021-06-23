@@ -1,0 +1,31 @@
+
+
+  <div class="jumbotron">
+    <h1> Food Journal</h1>
+    <p> Keeping track of what you eat and drink every day </p>
+
+
+    <ul>
+      <% foodJournals.forEach(fj => { %>
+          <li>
+                    <%= fj.title %>
+                <% if (fj.ownerId == user.id) {%>
+                    (OWNER)
+                <% } %>
+
+                <br>
+               <%= fj.createdAt %>
+          </li>
+      <% }) %>
+    </ul>
+
+
+
+      <form method="post" action="/fj">
+          new food title: <input type="text" name="title"><br>
+          description:<br>
+          <textarea name="description"></textarea>
+          <input type="submit" value="add food">
+      </form>
+
+  </div>

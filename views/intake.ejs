@@ -1,26 +1,21 @@
 <%- include('bootheader') -%>
 
 <%- include('menubar') -%>
-
+<div class="row">
+  <div class="col">
     <div class="jumbotron">
         <h3>How much sugar intake is OK per day?</h3>
         <p> Please enter your sugar intake of today(in teaspoon):</p>
     </div>
     <form method="post" action="/showintake">
-        Sugar intake <input type="text" name="sugarintake"> <br>
+        Sugar intake <input type="text" name="sugarintake"> <br><br>
+     <input type="submit" value="calculate">
+</form> <br>
 
-
-    <br>
-    <br>
-    <h3>Calculate calories:</h3>
-    <p>what did you have for dinner?:</p>
+  <img src="images/images.png"
+   width="80%" alt="photo" >
 </div>
-    food<input type="text" name="food"> <br>
-    drink<input type="text" name="drink"> <br>
-
-
-  <input type="submit" value="calculate">
-</form>
+</div>
 
 
 <%- include('bootfooter') -%>

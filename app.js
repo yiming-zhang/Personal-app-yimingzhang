@@ -8,12 +8,66 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const cors = require('cors');
+const layouts = require("express-ejs-layouts");
+const logger=require('morgan')
 //const bodyParser = require("body-parser");
 const axios = require("axios");
+const User = require('./models/User');
 var debug = require("debug")("personalapp:server");
 
 // Now we create the server
 const app = express();
+
+
+const mongoose = require( 'mongoose' );
+//mongoose.connect( `mongodb+srv://${auth.atlasAuth.username}:${auth.atlasAuth.password}@cluster0-yjamu.mongodb.net/authdemo?retryWrites=true&w=majority`);
+mongoose.connect( 'mongodb://localhost/authDemo');
+//const mongoDB_URI = process.env.MONGODB_URI
+//mongoose.connect(mongoDB_URI)
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("we are connected!!!")
+});
+
+const authRouter = require('./routes/authentication');
+const isLoggedIn = authRouter.isLoggedIn
+const loggingRouter = require('./routes/logging');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const toDoRouter = require('./routes/todo');
+const toDoAjaxRouter = require('./routes/todoAjax');
+const foodJournalRouter = require('./routes/foodJournal');
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(cors());
+app.use(layouts);
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(authRouter)
+app.use(loggingRouter);
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+app.use('/todo',toDoRouter);
+app.use('/todoAjax',toDoAjaxRouter);
+
+app.use('/fj',foodJournalRouter);
+
+const myLogger = (req,res,next) => {
+  console.log('inside a route!')
+  next()
+}
 
 // Here we specify that we will be using EJS as our view engine
 app.set("views", path.join(__dirname, "views"));
@@ -83,7 +137,7 @@ app.get("/checkhealth", (request,response) => {
 app.post('/showhealth', (req,res) => {
   const height = parseFloat(req.body.height) // converts form parameter from string to float
   const weight = parseFloat(req.body.weight)
-  const bmi=703*weight/(height*height)
+  const bmi=(703*weight)/(height*height)
   res.locals.height =height
   res.locals.weight = weight
   res.locals.bmi = bmi
@@ -128,38 +182,10 @@ app.post("/getRecipes",
 })
 
 
-// Here is where we will explore using forms!
 
 
 
-// this example shows how to get the current US covid data
-// and send it back to the browser in raw JSON form, see
-// https://covidtracking.com/data/api
-// for all of the kinds of data you can get
-app.get("/c19",
-  async (req,res,next) => {
-    try {
-      const url = "https://covidtracking.com/api/v1/us/current.json"
-      const result = await axios.get(url)
-      res.json(result.data)
-    } catch(error){
-      next(error)
-    }
-})
 
-// this shows how to use an API to get recipes
-// http://www.recipepuppy.com/about/api/
-// the example here finds omelet recipes with onions and garlic
-app.get("/omelet",
-  async (req,res,next) => {
-    try {
-      const url = "http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3"
-      const result = await axios.get(url)
-      res.json(result.data)
-    } catch(error){
-      next(error)
-    }
-})
 
 // Don't change anything below here ...
 
