@@ -182,8 +182,24 @@ app.post("/getRecipes",
 })
 
 
+app.get("/foodrank", (request,response) => {
+  response.render("foodrank")
+})
 
 
+app.get("/lowcalfruit", (request,response) => {
+  response.render("lowcalfruit")
+})
+
+
+app.get("/lowgi", (request,response) => {
+  response.render("lowgi")
+})
+
+
+app.get("/highprotein", (request,response) => {
+  response.render("highprotein")
+})
 
 
 

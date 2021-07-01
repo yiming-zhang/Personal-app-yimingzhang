@@ -21,7 +21,7 @@ isLoggedIn = (req,res,next) => {
 
 // get the value associated to the key
 router.get('/',
-  isLoggedIn,
+  //isLoggedIn,
   async (req, res, next) => {
       res.locals.foodJournals = await FoodJournal.find({}) //model.find() indMinors is referred in views-indMinor.ejs
       res.render('foodJournal');//this indMinor is the ejs in views
@@ -43,7 +43,7 @@ router.get('/delete/:minorId',
 
 /* add the value in the body to the list associated to the key */
 router.post('/',
-  isLoggedIn,
+ //isLoggedIn,
   async (req, res, next) => {
       const fj = new FoodJournal(//new+modelname this im is constant name, could be anyname
         {title:req.body.title,

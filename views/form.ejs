@@ -1,10 +1,10 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
     <h1>
-    Form
+    Info and form
     </h1>
     <br>
-    <h2>Diets</h2>
+    <h2>On a Diet</h2>
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -15,14 +15,107 @@
       </thead>
       <tbody>
         <tr>
-          <td>The Zone Diet</td>
-          <td>Weight Watchers Diet</td>
-          <td>Ketogenic Diet</td>
+          <th>The Zone Diet</th>
+          <th>Weight Watchers Diet</th>
+          <th>Ketogenic Diet</th>
         </tr>
       </tbody>
     </table>
+    <br>
     <hr>
-    <h2>Check out the links</h2>
+    <br>
+    <h2>Learn about these diets here...</h2>
+    <div class="accordion" id="dietsinfo">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h3>What is the Raw Food Diet?</h3>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#dietsinfo">
+          <div class="accordion-body">
+            "The raw food diet, often called raw foodism or raw veganism, is composed of mostly or completely raw and unprocessed foods.
+            A food is considered raw if it has never been heated over 104–118°F (40–48°C). It should also not be refined, pasteurized, treated with pesticides or otherwise processed in any way.
+            Instead, the diet allows several alternative preparation methods, such as juicing, blending, dehydrating, soaking and sprouting.
+            Similar to veganism, the raw food diet is usually plant-based, being made up mostly of fruits, vegetables, nuts and seeds.
+            While most raw food diets are completely plant-based, some people also consume raw eggs and dairy. Less commonly, raw fish and meat may be included as well.
+            Additionally, taking supplements is typically discouraged on the raw food diet. Proponents often claim that the diet will give you all the nutrients you need.
+            Supporters also believe that cooking foods is harmful to human health because it destroys the natural enzymes in foods, reduces their nutrient content and reduces the “life force” that they believe to exist in all raw or “living” foods.
+            People follow the raw food diet for the benefits they believe it has, including weight loss, improved vitality, increased energy, improvement to chronic diseases, improved overall health and a reduced impact on the environment."
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <h3>What is the Atkins Diet?</h3>
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#dietsinfo">
+          <div class="accordion-body">
+           "The Atkins diet is a low-carb diet, usually recommended for weight loss.
+            Proponents of this diet claim that you can lose weight while eating as much protein and fat as you want, as long as you avoid foods high in carbs.
+            In the past 12 or so years, over 20 studies have shown that low-carb diets without the need for calorie counting are effective for weight loss and can lead to various health improvements.
+            The Atkins diet was originally promoted by the physician Dr. Robert C. Atkins, who wrote a best-selling book about it in 1972.<br>
+            Phase 1 (induction): Under 20 grams of carbs per day for 2 weeks. Eat high-fat, high-protein, with low-carb vegetables like leafy greens. This kick-starts the weight loss.<br>
+            Phase 2 (balancing): Slowly add more nuts, low-carb vegetables and small amounts of fruit back to your diet.<br>
+            Phase 3 (fine-tuning): When you’re very close to your goal weight, add more carbs to your diet until weight loss slows down.<br>
+            Phase 4 (maintenance): Here you can eat as many healthy carbs as your body can tolerate without regaining weight."
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <h3>What is the Zone Diet?</h3>
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#dietsinfo">
+          <div class="accordion-body">
+            "The Zone Diet instructs its followers to stick to eating a specific ratio of 40% carbs, 30% protein and 30% fat.
+             As part of the diet, carbs should have a low glycemic index, which means they provide a slow release of sugar into the blood to keep you fuller for longer. Protein should be lean and fat should be mostly monounsaturated.
+             The Zone Diet was developed more than 30 years ago by Dr. Barry Sears, an American biochemist. His best-selling book The Zone was published in 1995.
+             Dr. Sears developed this diet after losing family members to early deaths from heart attacks, and felt that he was at risk unless he found a way to fight it.
+             The Zone Diet claims to reduce the inflammation in your body. Dr. Sears proposed inflammation was the reason people gain weight, become sick and age faster.
+             Proponents of the diet claim that once you reduce inflammation, you will lose fat at the fastest rate possible, slow down aging, reduce your risk of chronic disease and improve your performance."
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+<br>
+<p>
+  <a class="btn btn-primary btn-lg" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">What is the Vegan diet?</a>
+  <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">What is the Weight watchers diet?</button>
+
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+      A vegan or plant-based diet excludes all animal products, including meat, dairy, and eggs. When people follow it correctly, a vegan diet can be highly nutritious, reduce the risk of chronic diseases, and aid weight loss.
+      Increasing numbers of people are moving toward vegan diets due to health, animal welfare, or environmental concerns. A 2018 Gallup poll reports that about 3% of people in the United States are fully vegan and notes that sales of plant-based foods are rising.
+      Vegan diets tend to be rich in nutrients and low in saturated fats. Research suggests that the diet can improve heart health, protect against cancer, and lower the risk of type 2 diabetes.
+      However, people eating only plant-based foods need to be more aware of how to obtain certain nutrients, including iron, calcium, and vitamin B-12, that usually come from an omnivorous diet.
+      In this article, we take a close look at the vegan diet, including its health benefits and risks, as well as important things to consider before trying it out. We also provide recipe ideas and tips for following a vegan diet.
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
+        The Weight Watchers diet aims to restrict energy to achieve a weight loss of 0.5 to 1.0 kg per week, which is the medically accepted standard rate of a viable weight loss strategy.The dietary composition is akin to low-fat diets or moderate-fat and low-carbohydrate diet depending on the variant used.
+        Contrary to several other diets, Weight Watchers does not focus on the calories but simplify food selection wi point value calculated according to their nutrient and energy density. A point equals 50 cal. The point values system define both a quality scale and a quantity limit: a food with low point values, such as high fiber carbohydrates, lean proteins, legumes, can be consumed more freely and in higher quantities, whereas food items with higher point values must be eaten with parsimony or avoided. Most fruits and vegetables are "free", as they have a zero points value, and thus can be consumed at will.
+    </div>
+  </div>
+</div>
+
+<br>
+<hr>
+<br>
+
+
+    <h2>Check out the link</h2>
     <ol>
          <li><a href="https://www.medicalnewstoday.com/articles/5847">Nine Most Popular Diets</a></li>
 
@@ -34,8 +127,9 @@
     <li>Learn about healthy recipes</li>
     <li>Health check-in</li>
     </ul>
-
+<br>
 <hr>
+<br>
 <form method="post" action="/showformdata" class="bg-info">
   Enter your name:
   <input type="text"
